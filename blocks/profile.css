@@ -24,6 +24,7 @@
 }
 
 .profile__description {
+  margin: 0;
   max-width: 288px;
   font-size: 16px;
   line-height: 1;
@@ -43,7 +44,7 @@
 .profile__edit-button {
   margin-top: auto;
   margin-left: 0;
-  border: 1;
+  border: none;
   background: none;
   font-weight: 500;
   font-size: 16px;
@@ -52,11 +53,12 @@
 }
 .profile__add-button {
   margin-left: auto;
+  margin-top: auto;
   background-color: black;
   color: white;
   height: 52px;
   width: 152px;
-  border-radius: 16px;
+  border-radius: 8px;
   font-weight: 500;
 }
 
