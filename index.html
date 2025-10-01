@@ -36,7 +36,7 @@
             </button>
           </div>
           <button type="button" class="profile__add-button">
-            <img src="./images/plus-icon.svg" alt="Add Icon" />   New Post
+            <img src="./images/plus-icon.svg" alt="Add Icon" /> New Post
           </button>
         </section>
         <section class="cards page__section">
@@ -53,9 +53,7 @@
               </div>
             </li>
 
- 
-
-              <li class="card">
+            <li class="card">
               <img
                 src="./images/2-photo-by-ceiline-from-pexels.jpg"
                 alt="Restaurant terrace"
@@ -67,7 +65,7 @@
               </div>
             </li>
 
-              <li class="card">
+            <li class="card">
               <img
                 src="./images/3-photo-by-tubanur-dogan-from-pexels.jpg"
                 alt="An outdoor cafe"
@@ -79,19 +77,21 @@
               </div>
             </li>
 
-              <li class="card">
+            <li class="card">
               <img
                 src="./images/4-photo-by-maurice-laschet-from-pexels.jpg"
                 alt="A very long bridge, over the forest..."
                 class="card__image"
               />
               <div class="card__content">
-                <h2 class="card__title">A very long bridge, over the forest...</h2>
+                <h2 class="card__title">
+                  A very long bridge, over the forest...
+                </h2>
                 <button type="button" class="card__like-button"></button>
               </div>
             </li>
 
-              <li class="card">
+            <li class="card">
               <img
                 src="./images/5-photo-by-van-anh-nguyen-from-pexels.jpg"
                 alt="Tunnel with morning light"
@@ -102,7 +102,7 @@
                 <button type="button" class="card__like-button"></button>
               </div>
             </li>
- <li class="card">
+            <li class="card">
               <img
                 src="./images/6-photo-by-moritz-feldmann-from-pexels.jpg"
                 alt="Mountain house"
@@ -117,6 +117,69 @@
         </section>
       </main>
       <footer class="footer">2023 © Spots</footer>
+
+      <div class="modal ">
+        <div class="modal__container">
+          <div class="modal__row">
+            <button
+              type="button"
+              class="modal__close-btn"
+              aria-label="Close modal"
+            ></button>
+            <h2 class="modal__title">Edit profile</h2>
+          </div>
+
+          <form class="modal__form">
+            <label for="profile-name-input" class="modal__label">Name </label>
+            <input
+              id="profile-name-input"
+              class="modal__input"
+              placeholder="Type your name"
+            />
+            <label for="profile-description-input" class="modal__label"
+              >Description
+            </label>
+            <input
+              id="profile-description-input"
+              class="modal__input"
+              placeholder="Describe yourself"
+            />
+            <button class="modal__submit-btn" type="submit">Save</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="modal modal_is-opened">
+        <div class="modal__container">
+          <div class="modal__row">
+            <button
+              type="button"
+              class="modal__close-btn"
+              aria-label="Close modal"
+            ></button>
+            <h2 class="modal__title">New post</h2>
+          </div>
+
+          <form class="modal__form">
+            <label for="card-image-input" class="modal__label"
+              >Image link
+            </label>
+            <input
+              type="url"
+              id="card-image-input"
+              class="modal__input"
+              placeholder="Place the link to the picture"
+            />
+            <label for="card-caption-input" class="modal__label">Caption</label>
+            <input
+              id="card-caption-input"
+              class="modal__input"
+              placeholder="Type your Caption"
+            />
+            <button class="modal__submit-btn" type="submit">Save</button>
+          </form>
+        </div>
+      </div>
     </div>
   </body>
 </html>
