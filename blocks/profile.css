@@ -41,7 +41,7 @@
   flex-direction: column;
 }
 
-.profile__edit-button {
+.profile__edit-btn {
   margin-top: auto;
   margin-left: 0;
   border: none;
@@ -51,7 +51,7 @@
   width: 115px;
 
 }
-.profile__add-button {
+.profile__new-post-btn {
   margin-left: auto;
   margin-top: auto;
   background-color: black;
@@ -99,7 +99,7 @@
     margin-bottom: 6px;
     max-width: 288px;
   }
-  .profile__add-button {
+  .profile__new-post-btn {
     margin: 0;
     width: 100%;
   }
