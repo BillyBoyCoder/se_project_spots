@@ -36,6 +36,8 @@
   border-color: #2121214d;
   border-radius: 8px;
   padding: 16px;
+  border-style: solid;
+  border-width: 1px;
 }
 
 .modal__input::placeholder {
@@ -74,16 +76,18 @@
   font-size: 16px;
   border: none;
   cursor: pointer;
-  width: 156px;
+  max-width: 156px;
   padding: 18px;
 }
 
 @media screen and (max-width: 627px) {
   .modal__container {
     max-width: 300px;
+    padding: 12px;
   }
 
   .modal__submit-btn {
-    width: 300px;
+    max-width: 300px;
+    width: 100%;
   }
 }
