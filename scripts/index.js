@@ -29,7 +29,8 @@ const initialCards = [
 
 // Use forEach() to log the name of each place to the console
 initialCards.forEach(card => {
-  console.log(card.name);
+  console.log(`${card.name} - ${card.link}`);
+  
 });
 
 const editProfileBtn = document.querySelector(".profile__edit-btn");
