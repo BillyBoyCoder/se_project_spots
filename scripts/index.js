@@ -81,7 +81,7 @@ function handleProfileFormSubmit(evt) {
 
   // Insert these new values into the textContent
   // property of the corresponding profile elements.
-  profileName.innerHTML = nameInput.value;
+  profileName.innerHTML = profileNameInput.value;
   profileDescription.innerHTML = descriptionInput.value;
 
   // Close the modal.
