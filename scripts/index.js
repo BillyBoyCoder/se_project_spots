@@ -49,17 +49,27 @@ const profileDescription = document.querySelector(".profile__description");
 const profileNameInput = document.querySelector("#profile-name-input");
 const descriptionInput = document.querySelector("#profile-description-input");
 
+// Modal open and close functions
+function openModal(modal) {
+  modal.classList.add("modal--open");
+}
+
+function closeModal(modal) {
+  modal.classList.remove("modal--open");
+}
+
 newPostBtn.addEventListener("click", function () {
-  newPostModal.classList.add("modal_is-opened");
+  // Open the modal
+  openModal(newPostModal);
 });
 
 newPostCloseBtn.addEventListener("click", function () {
-  newPostModal.classList.remove("modal_is-opened");
+  closeModal(newPostModal);
 });
 
 editProfileBtn.addEventListener("click", function () {
   // Open the modal
-  editProfileModal.classList.add("modal_is-opened");
+  openModal(editProfileModal);
 
   // Fill in the current values of the profile
   // into the form inputs
@@ -70,7 +80,7 @@ editProfileBtn.addEventListener("click", function () {
 
 editProfileCloseBtn.addEventListener("click", function () {
   // Close the modal
-  editProfileModal.classList.remove("modal_is-opened");
+  closeModal(editProfileModal);
 });
 
 editProfileSaveBtn.addEventListener("click", handleProfileFormSubmit);
@@ -78,33 +88,33 @@ editProfileSaveBtn.addEventListener("click", handleProfileFormSubmit);
 function handleProfileFormSubmit(evt) {
   // Prevent the default form submit behavior
   evt.preventDefault();
-
+  
   // Insert these new values into the textContent
   // property of the corresponding profile elements.
   profileName.innerHTML = profileNameInput.value;
   profileDescription.innerHTML = descriptionInput.value;
 
   // Close the modal.
-  editProfileModal.classList.remove("modal_is-opened");
+  closeModal(editProfileModal);
 }
 
 // Select the necessary form elements. You should select
 // these from inside the modal, not the document.
 //const addCardFormElement =  newPostModal.querySelector("#new-post-modal");
 const cardCaptionInput = newPostModal.querySelector("#card-caption-input");
-const linkInput =  newPostModal.querySelector("#card-image-input");
+const linkInput = newPostModal.querySelector("#card-image-input");
 
 // Create the form submission handler.
 function handleAddCardSubmit(evt) {
   // Prevent default browser behavior.
-  evt.preventDefault(); 
- 
+  evt.preventDefault();
+
   // Log both input values to the console.
   console.log(`Name: ${cardCaptionInput.value}, Link: ${linkInput.value}`);
 
   // Close the modal.
-  newPostModal.classList.remove("modal_is-opened"); 
+  closeModal(newPostModal);
 }
 
 // Create the submit listener.
-newPostModal.addEventListener('submit', handleAddCardSubmit);
+newPostModal.addEventListener("submit", handleAddCardSubmit);
