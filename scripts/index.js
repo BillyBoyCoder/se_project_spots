@@ -50,12 +50,13 @@ const profileNameInput = document.querySelector("#profile-name-input");
 const descriptionInput = document.querySelector("#profile-description-input");
 
 // Modal open and close functions
+const openModalClass = "modal_is-opened";
 function openModal(modal) {
-  modal.classList.add("modal--open");
+  modal.classList.add(openModalClass);
 }
 
 function closeModal(modal) {
-  modal.classList.remove("modal--open");
+  modal.classList.remove(openModalClass);
 }
 
 newPostBtn.addEventListener("click", function () {
