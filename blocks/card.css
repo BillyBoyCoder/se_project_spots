@@ -8,6 +8,7 @@
   width: 413px;
   object-fit: cover;
   border-radius: 16px;
+  cursor: pointer;
 }
 
 .card__content {

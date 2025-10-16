@@ -41,6 +41,38 @@
   padding: 32px 50px;
 }
 
+/* Image preview modal styles */
+.modal__container_type_image {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  max-width: none;
+}
+
+.modal__image {
+  display: block;
+  max-width: 80vw;
+  max-height: 80vh;
+  width: auto;
+  height: auto;
+}
+
+.modal__caption {
+  color: #fff;
+  margin-top: 8px;
+}
+
+.modal__container_type_image .modal__close-btn {
+  background-image: url("../images/close.png");
+  right: 0;
+  top: -40px;
+  opacity: 0.6;
+}
+
+.modal__container_type_image .modal__close-btn:hover {
+  opacity: 1;
+}
+
 .modal__form {
   display: flex;
   flex-direction: column;
@@ -104,5 +136,10 @@
   .modal__submit-btn {
     max-width: 300px;
     width: 100%;
+  }
+
+  .modal__image {
+    max-width: 90vw;
+    max-height: 80vh;
   }
 }

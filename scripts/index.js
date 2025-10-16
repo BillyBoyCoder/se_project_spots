@@ -24,6 +24,10 @@ const initialCards = [
     name: "Mountain house",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
   },
+  {
+    name: "Street at dusk",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
+  },
 ];
 
 // Select the template and the container for cards
@@ -55,6 +59,14 @@ function getCardElement(data) {
     cardElement.remove();
   });
 
+  // Image click: open preview modal with larger image and caption
+  imageElement.addEventListener("click", () => {
+    previewCaption.textContent = data.name;
+    previewImage.src = data.link;
+    previewImage.alt = data.name;
+    openModal(previewModal);
+  });
+
   return cardElement;
 }
 
@@ -81,6 +93,12 @@ const profileDescription = document.querySelector(".profile__description");
 // Form input elements (where values need to be filled)
 const profileNameInput = document.querySelector("#profile-name-input");
 const descriptionInput = document.querySelector("#profile-description-input");
+
+// Preview image modal elements
+const previewModal = document.querySelector("#preview-modal");
+const previewImage = previewModal.querySelector(".modal__image");
+const previewCaption = previewModal.querySelector(".modal__caption");
+const previewCloseBtn = previewModal.querySelector(".modal__close-btn");
 
 // Modal open and close functions
 const openModalClass = "modal_is-opened";
@@ -118,6 +136,7 @@ editProfileCloseBtn.addEventListener("click", function () {
 });
 
 editProfileSaveBtn.addEventListener("click", handleProfileFormSubmit);
+previewCloseBtn.addEventListener("click", () => closeModal(previewModal));
 
 function handleProfileFormSubmit(evt) {
   // Prevent the default form submit behavior
