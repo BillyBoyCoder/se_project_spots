@@ -141,7 +141,7 @@ previewCloseBtn.addEventListener("click", () => closeModal(previewModal));
 function handleProfileFormSubmit(evt) {
   // Prevent the default form submit behavior
   evt.preventDefault();
-  
+
   // Insert these new values into the textContent
   // property of the corresponding profile elements.
   profileName.innerHTML = profileNameInput.value;

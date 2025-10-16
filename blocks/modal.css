@@ -1,9 +1,7 @@
 .modal {
   visibility: hidden;
   opacity: 0;
-
   transition: visibility 0s linear 0.3s, opacity 0.3s linear;
-
   padding: 10px;
   position: fixed;
   top: 0;
@@ -32,7 +30,6 @@
 .modal__container {
   transform: scale(1);
   transition: transform 0.3s ease;
-
   position: relative;
   width: 100%;
   max-width: 730px;
@@ -42,12 +39,11 @@
 }
 
 .modal__container_elements {
-   display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 /* Image preview modal styles */
 .modal__container_type_image {
-
   background-color: transparent;
   padding: 0;
   border-radius: 0;
