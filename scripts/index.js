@@ -26,9 +26,36 @@ const initialCards = [
   },
 ];
 
-// Use forEach() to log the name of each place to the console
-initialCards.forEach((card) => {
-  console.log(`${card.name} - ${card.link}`);
+// Select the template and the container for cards
+const cardTemplate = document.querySelector("#card-template");
+const cardsListElement = document.querySelector(".cards__list");
+
+// Create a function that builds a card element from data
+function getCardElement(data) {
+  const cardElement = cardTemplate.content
+    .querySelector(".card")
+    .cloneNode(true);
+
+  const imageElement = cardElement.querySelector(".card__image");
+  const titleElement = cardElement.querySelector(".card__title");
+  const likeButton = cardElement.querySelector(".card__like-button");
+
+  imageElement.src = data.link;
+  imageElement.alt = data.name;
+  titleElement.textContent = data.name;
+
+  // Like button: toggle liked state on click
+  likeButton.addEventListener("click", () => {
+    likeButton.classList.toggle("card__like-button_liked");
+  });
+
+  return cardElement;
+}
+
+// Render initial cards
+initialCards.forEach((cardData) => {
+  const cardElement = getCardElement(cardData);
+  cardsListElement.prepend(cardElement);
 });
 
 const editProfileBtn = document.querySelector(".profile__edit-btn");
@@ -110,8 +137,14 @@ function handleAddCardSubmit(evt) {
   // Prevent default browser behavior.
   evt.preventDefault();
 
-  // Log both input values to the console.
-  console.log(`Name: ${cardCaptionInput.value}, Link: ${linkInput.value}`);
+  // Build a new card from input values and add it to the DOM as first item.
+  const newCardData = {
+    name: cardCaptionInput.value,
+    link: linkInput.value,
+  };
+
+  const newCardElement = getCardElement(newCardData);
+  cardsListElement.prepend(newCardElement);
 
   // Close the modal.
   closeModal(newPostModal);
