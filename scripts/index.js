@@ -98,7 +98,7 @@ const descriptionInput = document.querySelector("#profile-description-input");
 const previewModal = document.querySelector("#preview-modal");
 const previewImage = previewModal.querySelector(".modal__image");
 const previewCaption = previewModal.querySelector(".modal__caption");
-const previewCloseBtn = previewModal.querySelector(".modal__close-btn");
+const previewCloseBtn = previewModal.querySelector(".modal__img-close-btn");
 
 // Modal open and close functions
 const openModalClass = "modal_is-opened";
