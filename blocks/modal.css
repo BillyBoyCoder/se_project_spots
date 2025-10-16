@@ -67,7 +67,7 @@
   color: #fff;
   margin-top: 8px;
 }
-
+/*
 .modal__container_type_image .modal__img-close-btn {
   background-image: url("../images/closeModal.svg");
   object-fit: cover;
@@ -80,8 +80,27 @@
   background-color: transparent;
   opacity: 0.4;
 }
+  */
 
-.modal__container_type_image .modal__close-btn:hover {
+  
+.modal__img-close-btn {
+  background-image: url("../images/closeModal.svg");
+  object-fit: cover;
+  opacity: 0.6;
+  max-height: 30px;
+  width: 30px;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  background-color: transparent;
+  opacity: 0.4;
+}
+
+.modal__img-close-btn:hover {
+  opacity: 1;
+}
+
+.modal__contai_image .modal__close-btn:hover {
   opacity: 1;
 }
 
