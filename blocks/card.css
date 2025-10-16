@@ -56,8 +56,8 @@
 /* Delete button in the top-right over the image */
 .card__delete-button {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 30px;
+  right: 10px;
   width: 32px;
   height: 32px;
   border: none;
