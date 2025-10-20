@@ -80,6 +80,10 @@
               id="profile-name-input"
               class="modal__input"
               placeholder="Type your name"
+              type="text"
+              required
+              minlength="2"
+              maxlength="40"
             />
             <label for="profile-description-input" class="modal__label"
               >Description
@@ -88,6 +92,10 @@
               id="profile-description-input"
               class="modal__input"
               placeholder="Describe yourself"
+              type="text"
+              required
+              minlength="2"
+              maxlength="200"
             />
             <button class="modal__submit-btn" type="submit">Save</button>
           </form>
@@ -114,12 +122,16 @@
               id="card-image-input"
               class="modal__input"
               placeholder="Place the link to the picture"
+              required
             />
             <label for="card-caption-input" class="modal__label">Caption</label>
             <input
               id="card-caption-input"
               class="modal__input"
               placeholder="Type your Caption"
+              required
+              minlength="2"
+              maxlength="30"
             />
             <button class="modal__submit-btn" type="submit">Save</button>
           </form>
