@@ -144,6 +144,55 @@ This project is based on Figma designs. When working on similar projects:
 - Test on multiple devices and browsers
 - Write clean, commented code
 
+## Code Requirements
+General Requirements. In this sprint, we're going to pay special attention to how your code is structured in functions. Try to ensure each function has a single purpose and that it fulfills that purpose only.
+
+Form Validation Requirements. Wrap your validation code inside functions, as you did in the chapter on form validation. The enableValidation() function should be called in validation.js, to allow us to validate our forms. 
+
+Make sure that the enableValidation() function accepts an object similar to the following. The object should contain the selectors and classes that are required for form validation:
+
+```javascript
+// Declaring a configuration object that contains the
+// necessary classes and selectors. 
+const settings = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible"
+}
+
+// Passing the configuration object to enableValidation when we call it.
+enableValidation(settings);
+```
+This object contains class names and class selectors. Selectors are used, for instance, for looking up elements in the DOM via querySelector() or querySelectorAll() methods, while class names can be used with the classList.add() or classList.remove() methods.
+
+💡 These kinds of objects are usually called configuration objects and are a common way of passing multiple recurring parameters to functions in JavaScript.
+
+Make sure to update the object to include the selectors and classes that you are using in your own project.
+
+Pass this configuration object as an argument to all of the validation methods and make use of it instead of using hard-coded strings. Here is a partial example:
+```javascript
+function enableValidation(config) {
+  // Use config.formSelector instead of ".modal__form"
+  const formList = document.querySelectorAll(config.formSelector);
+  formList.forEach((formEl) => {
+    // Pass the config object to setEventListeners.
+    setEventListeners(formEl, config);
+  })
+}
+
+function setEventListeners(formElement, config) {
+  // Use config.submitButtonSelector instead of ".modal__button"
+  const buttonElement = formElement.querySelector(config.submitButtonSelector);
+  
+  // and so on
+}
+
+
+```
+
 ##  Known Issues
 
 - Document any current bugs or limitations

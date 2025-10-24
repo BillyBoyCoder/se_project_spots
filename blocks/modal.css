@@ -82,7 +82,6 @@
 }
   */
 
-  
 .modal__img-close-btn {
   background-image: url("../images/closeModal.svg");
   object-fit: cover;
@@ -110,7 +109,7 @@
 }
 
 .modal__input {
-  margin-bottom: 32px;
+  margin-top: 8px;
   border-color: #2121214d;
   border-radius: 8px;
   padding: 16px;
@@ -143,6 +142,10 @@
 
 .modal__label {
   margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
+  
 }
 
 .modal__submit-btn {
@@ -156,6 +159,26 @@
   cursor: pointer;
   max-width: 156px;
   padding: 18px;
+}
+
+.modal__submit-btn_disabled {
+  background-color: #000000;
+  cursor: not-allowed;
+  opacity: 0.2;
+  transition: opacity 0.3s ease;
+} 
+
+
+.modal__error {
+  margin-top: 8px;
+  display: block;
+  color: #ff000099;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 110%;
+  letter-spacing: 0%;
 }
 
 @media screen and (max-width: 627px) {
@@ -174,3 +197,4 @@
     max-height: 80vh;
   }
 }
+

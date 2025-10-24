@@ -177,3 +177,4 @@ function handleAddCardSubmit(evt) {
 
 // Create the submit listener.
 newPostModal.addEventListener("submit", handleAddCardSubmit);
+
