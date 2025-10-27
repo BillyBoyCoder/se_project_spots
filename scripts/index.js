@@ -84,6 +84,7 @@ const editProfileSaveBtn = editProfileModal.querySelector(".modal__submit-btn");
 const newPostBtn = document.querySelector(".profile__new-post-btn");
 const newPostModal = document.querySelector("#new-post-modal");
 const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
+const newPostSaveBtn = newPostModal.querySelector(".modal__submit-btn");
 
 // Profile text elements (where current values are displayed)
 const profileName = document.querySelector(".profile__name");
@@ -110,9 +111,66 @@ function closeModal(modal) {
   modal.classList.remove(openModalClass);
 }
 
+// Convenience helper: run the project's validation handlers for all inputs
+// inside a modal and update the submit button state. This dispatches an
+// 'input' event for each input so the existing listeners run (show errors)
+// then calls the shared toggleButtonState helper exposed by validation.js.
+function updateModalSubmitState(modal, skipErrorDisplay = false) {
+  if (
+    !modal ||
+    typeof window.toggleButtonState !== "function" ||
+    !window.validationSettings
+  )
+    return;
+  const form = modal.querySelector(".modal__form");
+  if (!form) return;
+  const inputs = Array.from(
+    form.querySelectorAll(window.validationSettings.inputSelector)
+  );
+  const submit = form.querySelector(
+    window.validationSettings.submitButtonSelector
+  );
+
+  // Special case for new post modal: disable button if both inputs are empty
+  if (modal.id === "new-post-modal") {
+    const cardImageInput = form.querySelector("#card-image-input");
+    const cardCaptionInput = form.querySelector("#card-caption-input");
+    if (
+      cardImageInput &&
+      cardCaptionInput &&
+      !cardImageInput.value.trim() &&
+      !cardCaptionInput.value.trim()
+    ) {
+      submit.disabled = true;
+      submit.classList.add(window.validationSettings.inactiveButtonClass);
+      // Clear any existing error states when both are empty
+      inputs.forEach((input) => {
+        input.classList.remove(window.validationSettings.inputErrorClass);
+        const errorElement = input.nextElementSibling;
+        if (errorElement) {
+          errorElement.textContent = "";
+          errorElement.classList.remove(window.validationSettings.errorClass);
+        }
+      });
+      return; // Skip normal validation
+    }
+  }
+
+  // Only show validation UI if we're not skipping error display
+  if (!skipErrorDisplay) {
+    inputs.forEach((inp) =>
+      inp.dispatchEvent(new Event("input", { bubbles: true }))
+    );
+  }
+  // Always update submit button state
+  window.toggleButtonState(inputs, submit, window.validationSettings);
+}
+
 newPostBtn.addEventListener("click", function () {
   // Open the modal
   openModal(newPostModal);
+  // Initialize button state but skip showing validation errors
+  updateModalSubmitState(newPostModal, true);
 });
 
 newPostCloseBtn.addEventListener("click", function () {
@@ -128,6 +186,8 @@ editProfileBtn.addEventListener("click", function () {
   // by setting the value property of each input element.
   profileNameInput.value = profileName.textContent;
   descriptionInput.value = profileDescription.textContent;
+  // Run validation handlers and update submit button on open
+  updateModalSubmitState(editProfileModal);
 });
 
 editProfileCloseBtn.addEventListener("click", function () {
@@ -135,7 +195,14 @@ editProfileCloseBtn.addEventListener("click", function () {
   closeModal(editProfileModal);
 });
 
-editProfileSaveBtn.addEventListener("click", handleProfileFormSubmit);
+// Attach submit listener to the edit profile form so evt.target is the form
+const editProfileForm = editProfileModal.querySelector(".modal__form");
+if (editProfileForm) {
+  editProfileForm.addEventListener("submit", handleProfileFormSubmit);
+} else {
+  // Fallback: keep old behavior on the button (less ideal)
+  editProfileSaveBtn.addEventListener("click", handleProfileFormSubmit);
+}
 previewCloseBtn.addEventListener("click", () => closeModal(previewModal));
 
 function handleProfileFormSubmit(evt) {
@@ -146,6 +213,8 @@ function handleProfileFormSubmit(evt) {
   // property of the corresponding profile elements.
   profileName.innerHTML = profileNameInput.value;
   profileDescription.innerHTML = descriptionInput.value;
+
+  evt.target.reset();
 
   // Close the modal.
   closeModal(editProfileModal);
@@ -171,10 +240,11 @@ function handleAddCardSubmit(evt) {
   const newCardElement = getCardElement(newCardData);
   cardsListElement.prepend(newCardElement);
 
+  evt.target.reset();
+
   // Close the modal.
   closeModal(newPostModal);
 }
 
 // Create the submit listener.
 newPostModal.addEventListener("submit", handleAddCardSubmit);
-
