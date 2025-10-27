@@ -103,12 +103,30 @@ const previewCloseBtn = previewModal.querySelector(".modal__img-close-btn");
 
 // Modal open and close functions
 const openModalClass = "modal_is-opened";
+
 function openModal(modal) {
+  if (!modal) return;
   modal.classList.add(openModalClass);
+
+  // Handler to close modal if clicking on overlay (not content)
+  function overlayClickHandler(evt) {
+    if (evt.target === modal) {
+      closeModal(modal);
+    }
+  }
+  // Attach handler and store reference for cleanup
+  modal._overlayClickHandler = overlayClickHandler;
+  modal.addEventListener("mousedown", overlayClickHandler);
 }
 
 function closeModal(modal) {
+  if (!modal) return;
   modal.classList.remove(openModalClass);
+  // Remove overlay click handler if present
+  if (modal._overlayClickHandler) {
+    modal.removeEventListener("mousedown", modal._overlayClickHandler);
+    delete modal._overlayClickHandler;
+  }
 }
 
 // Convenience helper: run the project's validation handlers for all inputs
@@ -211,8 +229,9 @@ function handleProfileFormSubmit(evt) {
 
   // Insert these new values into the textContent
   // property of the corresponding profile elements.
-  profileName.innerHTML = profileNameInput.value;
-  profileDescription.innerHTML = descriptionInput.value;
+  // Use textContent to avoid interpreting user input as HTML
+  profileName.textContent = profileNameInput.value;
+  profileDescription.textContent = descriptionInput.value;
 
   evt.target.reset();
 

@@ -1,5 +1,3 @@
-
-
 function showInputError(formElement, inputElement, errorMessage, config) {
   // I can use this line of code because the error message
   // is the next element down from the input element.

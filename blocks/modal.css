@@ -38,7 +38,7 @@
   padding: 32px 50px;
 }
 
-.modal__container_elements {
+.modal__content {
   display: flex;
   flex-direction: column;
 }
@@ -52,7 +52,7 @@
   max-width: none;
   display: flex;
   flex-direction: row;
-  align-items: top;
+  align-items: flex-start;
   justify-content: center;
   gap: 10px;
 }
@@ -132,8 +132,8 @@
   color: #2121214d;
 }
 
-.modal__input_type_error {
-  border: 1px solid rgba(255, 0, 0, 0.6) !important;
+.modal__form .modal__input_type_error {
+  border: 1px solid rgba(255, 0, 0, 0.6);
 }
 
 .modal__close-btn {
@@ -184,14 +184,19 @@
 
 .modal__error {
   margin-top: 8px;
-  display: block;
+  display: none; /* Hidden by default */
   color: #ff000099;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", Arial, sans-serif;
   font-weight: 500;
   font-style: normal;
   font-size: 16px;
   line-height: 110%;
   letter-spacing: 0%;
+}
+
+/* Show error message when this class is added */
+.modal__error_visible {
+  display: block;
 }
 
 @media screen and (max-width: 627px) {

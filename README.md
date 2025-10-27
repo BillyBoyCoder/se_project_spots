@@ -4,6 +4,13 @@
 https://drive.google.com/file/d/1gBhueo-tRW2xrv4pJ3xF2YAHslytKn5F/view?usp=drive_link
 
 
+## Live Demo
+
+Deployed on GitHub Pages:
+
+- https://billyboycoder.github.io/se_project_spots/
+
+
 
 A responsive web application project focused on displaying content correctly across popular screen sizes. This project emphasizes mobile-first design principles and cross-device compatibility.
 
@@ -52,6 +59,34 @@ The application is optimized for:
 - Modern web browser (Chrome, Firefox, Safari, Edge)
 - Code editor (VS Code, Sublime Text, etc.)
 - Basic knowledge of HTML, CSS
+
+### Deployment to GitHub Pages
+
+To deploy this project to GitHub Pages:
+
+1. **Push your code to GitHub**
+   ```bash
+   git add .
+   git commit -m "Deploy to GitHub Pages"
+   git push origin main
+   ```
+
+2. **Enable GitHub Pages**
+   - Go to your repository on GitHub
+   - Navigate to **Settings** > **Pages**
+   - Under **Source**, select **Deploy from a branch**
+   - Choose **main** branch and **/ (root)** folder
+   - Click **Save**
+
+3. **Wait for deployment**
+   - GitHub will automatically build and deploy your site
+   - This usually takes 1-2 minutes
+   - Your site will be available at: `https://billyboycoder.github.io/se_project_spots/`
+
+4. **Verify deployment**
+   - Click the **Visit site** button in the Pages settings
+   - Or navigate directly to your GitHub Pages URL
+   - Test all features across different devices
 
 ### Installation
 
