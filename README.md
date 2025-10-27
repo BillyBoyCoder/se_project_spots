@@ -1,5 +1,10 @@
 # Spots - Responsive Web Application
 
+# Pitch
+https://drive.google.com/file/d/1gBhueo-tRW2xrv4pJ3xF2YAHslytKn5F/view?usp=drive_link
+
+
+
 A responsive web application project focused on displaying content correctly across popular screen sizes. This project emphasizes mobile-first design principles and cross-device compatibility.
 
 ##  Project Overview

@@ -1,14 +1,4 @@
-// validation.js
-// Expose enableValidation(config) to wire browser validation messages into
-// adjacent .modal__error elements. The function accepts a configuration object:
-// {
-//   formSelector,
-//   inputSelector,
-//   submitButtonSelector,
-//   inactiveButtonClass,
-//   inputErrorClass,
-//   errorClass
-// }
+
 
 function showInputError(formElement, inputElement, errorMessage, config) {
   // I can use this line of code because the error message
