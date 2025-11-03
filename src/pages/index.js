@@ -1,4 +1,10 @@
+import "./index.css";
+import { enableValidation } from "../scripts/validation.js";
+import  Api from "../scripts/Api.js";
+
+
 // Create the initialCards array
+/*
 const initialCards = [
   {
     name: "Val Thorens",
@@ -29,6 +35,30 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
   },
 ];
+*/
+
+const api = new Api({
+  baseUrl: 'https://around-api.en.tripleten-services.com/v1/cards',
+  headers: {
+    authorization: 'f5b3fe93-a8c5-4a6d-b9be-8689b3b67c2f',
+    "Content-Type": "application/json",
+  },
+});
+
+api.getInitialCards()
+  .then((cards) => {
+    console.log("Initial cards data:", cards);
+
+    /*
+// Render initial cards
+initialCards.forEach((cards) => {
+  const cardElement = getCardElement(cards);
+  cardsListElement.prepend(cardElement);
+});
+*/
+  }); 
+
+
 
 // Select the template and the container for cards
 const cardTemplate = document.querySelector("#card-template");
@@ -70,11 +100,6 @@ function getCardElement(data) {
   return cardElement;
 }
 
-// Render initial cards
-initialCards.forEach((cardData) => {
-  const cardElement = getCardElement(cardData);
-  cardsListElement.prepend(cardElement);
-});
 
 const editProfileBtn = document.querySelector(".profile__edit-btn");
 const editProfileModal = document.querySelector("#edit-profile-modal");
@@ -267,3 +292,6 @@ function handleAddCardSubmit(evt) {
 
 // Create the submit listener.
 newPostModal.addEventListener("submit", handleAddCardSubmit);
+
+
+enableValidation(window.validationSettings);
