@@ -49,13 +49,13 @@ api.getInitialCards()
   .then((cards) => {
     console.log("Initial cards data:", cards);
 
-    /*
+    
 // Render initial cards
-initialCards.forEach((cards) => {
+cards.forEach((cards) => {
   const cardElement = getCardElement(cards);
   cardsListElement.prepend(cardElement);
 });
-*/
+
   }); 
 
 
