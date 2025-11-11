@@ -1,6 +1,13 @@
 # Spots - Responsive Web Application
 
 # Pitch
+
+ ## Project Pitch Video 
+  Check out WilliamCook-ProjectPitch-SpotsFinalStage
+  (https://drive.google.com/drive/folders/10MJeVvLkVELGmMRfRK0Yz-gqNR1B7fyx), where I describe my 
+ project and some challenges I faced while building it.
+
+
 https://drive.google.com/file/d/1gBhueo-tRW2xrv4pJ3xF2YAHslytKn5F/view?usp=drive_link
 
 
